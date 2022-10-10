@@ -51,3 +51,106 @@ const minus = (a: number, b: number): number => a -b ;
 console.log("minus ", minus(5,3));
 
 // Array And Object In Typescript
+
+// Array
+
+let arrNames: Array<string> = ["Doctor", "Stranger", "Marvel"];
+arrNames.push("Spider Man");
+console.log(arrNames);
+
+let arrNumbers: Array<number> = [1, 2, 3, 4, 5, 0.7];
+arrNumbers.push(10);
+arrNumbers[7] = 20;
+console.log(arrNumbers);
+
+// let mixed = [1, "string", false, [1, 2, 3]];
+let mixed: Array <string | number | boolean> = ["stranger", 1, true];
+mixed.push("stranger");
+console.log(mixed);
+
+// Object
+
+let person = {
+  name: "Stranger",
+  age: 21,
+  isStudent: true,
+};
+
+let person1 = { ...person, name: "Doctor", age: 19 };
+console.log("person", person);
+console.log("person1", person1);
+
+let person2 = {
+  ...person,
+  name: "Tony Stark",
+  age: 40,
+  isStudent: false,
+  sex: "male",
+};
+
+console.log(person2);
+
+// Any Type in Typescript
+
+let myAges: any;
+myAges = 19;
+myAges = "Nine Teen";
+
+console.log(myAge);
+
+// Type Alias In Typescript
+
+type StringOrNumber  = string | number;
+type Student = {
+  name: string
+  id: StringOrNumber
+}
+
+const StudentDetail = (id: StringOrNumber, studentName: string):void => {
+  console.log(`Student ${studentName} has id: ${id}`);
+
+}
+
+StudentDetail(1, "Stranger");
+
+StudentDetail("ten", "Stranger");
+
+const greet1 = (user: Student) => {
+  console.log(`${user.name} with id ${user.id} says hello`);
+}
+
+greet1({
+  name: "Doctor",
+  id: "Stranger"
+})
+
+// Function Signature
+let sayHello: (a: string, b: string) => void;
+sayHello = (name: string, greeting: string) => {
+  console.log(`${name} says ${greeting}`);
+};
+
+sayHello("Stranger", "Con Cak");
+
+let calculate: (a: number, b: number, c: string) => void;
+
+calculate = (numOne: number, numTwo: number, action: string) => {
+  const result = action === "ADD" ? numOne + numTwo : numOne - numTwo;
+  console.log(result);
+};
+
+calculate(1, 2, "Minus");
+
+type Students = { name: string; age: number };
+let printStudent: (student: Students) => void;
+
+// printStudent = (myStudent: Students) => {
+//   console.log(`${myStudent.name} is ${myStudent.age} years old`);
+// }
+
+// destructuring
+printStudent = ({ name, age }: Students) => {
+  console.log(`${name} is ${age} years old`);
+};
+
+printStudent({ name: "Stranger", age: 20 });
