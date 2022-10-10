@@ -2,103 +2,104 @@
 
 // Type in Typescript
 
-// let myName: string = "Stranger";
+let myName: string = "Stranger";
 
-// let myAge: number = 21;
+let myAge: number = 21;
 
-// let isStudent: boolean = true;
+let isStudent: boolean = true;
 
-// console.log("myName: ", myName);
+console.log("myName: ", myName);
 
-// console.log("myAge: ", myAge);
+console.log("myAge: ", myAge);
 
-// console.log("isStudent: ", isStudent);
+console.log("isStudent: ", isStudent);
 
 // Function in Typescript
 
-// const square = (side: number) => side * side;
+const square = (side: number) => side * side;
 
-// console.log("square: ", square(2));
+console.log("square: ", square(2));
 
-// let greet: Function;
+let greet: Function;
 
-// greet = () => {
-//   console.log("Hello Typescript");
-// };
+greet = () => {
+  console.log("Hello Typescript");
+};
 
-// greet();
+greet();
 
-// const addNumber = (a: number, b: number, c: number) => a + b + c;
+const addNumber = (a: number, b: number, c: number) => a + b + c;
 
-// console.log(addNumber(1, 2, 3));
+console.log(addNumber(1, 2, 3));
 
-// const addNumbers = (a: number, b: number, c?: number | string) => {
-//   console.log(a + b);
-//   console.log(c);
-// };
+const addNumbers = (a: number, b: number, c?: number | string) => {
+  console.log(a + b);
+  console.log(c);
+};
 
-// addNumbers(3, 4, "stranger");
+addNumbers(3, 4, "stranger");
 
-// const addDefault = (a: number, b: number, c: number | string = 10) => {
-//   console.log("sum = ", a + b);
-//   console.log("c = ", c);
-// };
+const addDefault = (a: number, b: number, c: number | string = 10) => {
+  console.log("sum = ", a + b);
+  console.log("c = ", c);
+};
 
-// addDefault(5, 5);
+addDefault(5, 5);
 
-// const minus = (a: number, b: number): number => a -b ;
+const minus = (a: number, b: number): number => a -b ;
 
-// console.log("minus ", minus(5,3));
+console.log("minus ", minus(5,3));
 
 // Array And Object In Typescript
 
 // Array
 
-// let arrNames: Array<string> = ["Doctor", "Stranger", "Marvel"];
-// arrNames.push("Spider Man");
-// console.log(arrNames);
+let arrNames: Array<string> = ["Doctor", "Stranger", "Marvel"];
+arrNames.push("Spider Man");
+console.log(arrNames);
 
-// let arrNumbers: Array<number> = [1, 2, 3, 4, 5, 0.7];
-// arrNumbers.push(10);
-// arrNumbers[7] = 20;
-// console.log(arrNumbers);
+let arrNumbers: Array<number> = [1, 2, 3, 4, 5, 0.7];
+arrNumbers.push(10);
+arrNumbers[7] = 20;
+console.log(arrNumbers);
 
 // let mixed = [1, "string", false, [1, 2, 3]];
-// let mixed: Array <string | number | boolean> = ["stranger", 1, true];
-// mixed.push("stranger");
-// console.log(mixed);
+let mixed: Array <string | number | boolean> = ["stranger", 1, true];
+mixed.push("stranger");
+console.log(mixed);
 
 // Object
 
-// let person = {
-//   name: "Stranger",
-//   age: 21,
-//   isStudent: true,
-// };
+let person = {
+  name: "Stranger",
+  age: 21,
+  isStudent: true,
+};
 
-// let person1 = { ...person, name: "Doctor", age: 19 };
-// console.log("person", person);
-// console.log("person1", person1);
+let person1 = { ...person, name: "Doctor", age: 19 };
+console.log("person", person);
+console.log("person1", person1);
 
-// let person2 = {
-//   ...person,
-//   name: "Tony Stark",
-//   age: 40,
-//   isStudent: false,
-//   sex: "male",
-// };
+let person2 = {
+  ...person,
+  name: "Tony Stark",
+  age: 40,
+  isStudent: false,
+  sex: "male",
+};
 
-// console.log(person2);
+console.log(person2);
 
 // Any Type in Typescript
 
-// let myAge: any;
-// myAge = 19;
-// myAge = "Nine Teen";
+let myAges: any;
+myAges = 19;
+myAges = "Nine Teen";
 
-// console.log(myAge);
+console.log(myAge);
 
 // Type Alias In Typescript
+
 type StringOrNumber  = string | number;
 type Student = {
   name: string
@@ -107,19 +108,49 @@ type Student = {
 
 const StudentDetail = (id: StringOrNumber, studentName: string):void => {
   console.log(`Student ${studentName} has id: ${id}`);
-  
+
 }
 
 StudentDetail(1, "Stranger");
 
 StudentDetail("ten", "Stranger");
 
-
-const greet = (user: Student) => {
+const greet1 = (user: Student) => {
   console.log(`${user.name} with id ${user.id} says hello`);
 }
 
-greet({
+greet1({
   name: "Doctor",
   id: "Stranger"
 })
+
+// Function Signature
+let sayHello: (a: string, b: string) => void;
+sayHello = (name: string, greeting: string) => {
+  console.log(`${name} says ${greeting}`);
+};
+
+sayHello("Stranger", "Con Cak");
+
+let calculate: (a: number, b: number, c: string) => void;
+
+calculate = (numOne: number, numTwo: number, action: string) => {
+  const result = action === "ADD" ? numOne + numTwo : numOne - numTwo;
+  console.log(result);
+};
+
+calculate(1, 2, "Minus");
+
+type Students = { name: string; age: number };
+let printStudent: (student: Students) => void;
+
+// printStudent = (myStudent: Students) => {
+//   console.log(`${myStudent.name} is ${myStudent.age} years old`);
+// }
+
+// destructuring
+printStudent = ({ name, age }: Students) => {
+  console.log(`${name} is ${age} years old`);
+};
+
+printStudent({ name: "Stranger", age: 20 });
