@@ -90,13 +90,36 @@
 
 // console.log(person2);
 
-
 // Any Type in Typescript
 
-let myAge: any;
-myAge = 19;
-myAge = "Nine Teen";
+// let myAge: any;
+// myAge = 19;
+// myAge = "Nine Teen";
 
-console.log(myAge);
+// console.log(myAge);
+
+// Type Alias In Typescript
+type StringOrNumber  = string | number;
+type Student = {
+  name: string
+  id: StringOrNumber
+}
+
+const StudentDetail = (id: StringOrNumber, studentName: string):void => {
+  console.log(`Student ${studentName} has id: ${id}`);
+  
+}
+
+StudentDetail(1, "Stranger");
+
+StudentDetail("ten", "Stranger");
 
 
+const greet = (user: Student) => {
+  console.log(`${user.name} with id ${user.id} says hello`);
+}
+
+greet({
+  name: "Doctor",
+  id: "Stranger"
+})
