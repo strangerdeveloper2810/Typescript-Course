@@ -2,52 +2,89 @@
 
 // Type in Typescript
 
-let myName: string = "Stranger";
+// let myName: string = "Stranger";
 
-let myAge: number = 21;
+// let myAge: number = 21;
 
-let isStudent: boolean = true;
+// let isStudent: boolean = true;
 
-console.log("myName: ", myName);
+// console.log("myName: ", myName);
 
-console.log("myAge: ", myAge);
+// console.log("myAge: ", myAge);
 
-console.log("isStudent: ", isStudent);
+// console.log("isStudent: ", isStudent);
 
 // Function in Typescript
 
-const square = (side: number) => side * side;
+// const square = (side: number) => side * side;
 
-console.log("square: ", square(2));
+// console.log("square: ", square(2));
 
-let greet: Function;
+// let greet: Function;
 
-greet = () => {
-  console.log("Hello Typescript");
-};
+// greet = () => {
+//   console.log("Hello Typescript");
+// };
 
-greet();
+// greet();
 
-const addNumber = (a: number, b: number, c: number) => a + b + c;
+// const addNumber = (a: number, b: number, c: number) => a + b + c;
 
-console.log(addNumber(1, 2, 3));
+// console.log(addNumber(1, 2, 3));
 
-const addNumbers = (a: number, b: number, c?: number | string) => {
-  console.log(a + b);
-  console.log(c);
-};
+// const addNumbers = (a: number, b: number, c?: number | string) => {
+//   console.log(a + b);
+//   console.log(c);
+// };
 
-addNumbers(3, 4, "stranger");
+// addNumbers(3, 4, "stranger");
 
-const addDefault = (a: number, b: number, c: number | string = 10) => {
-  console.log("sum = ", a + b);
-  console.log("c = ", c);
-};
+// const addDefault = (a: number, b: number, c: number | string = 10) => {
+//   console.log("sum = ", a + b);
+//   console.log("c = ", c);
+// };
 
-addDefault(5, 5);
+// addDefault(5, 5);
 
-const minus = (a: number, b: number): number => a -b ;
+// const minus = (a: number, b: number): number => a -b ;
 
-console.log("minus ", minus(5,3));
+// console.log("minus ", minus(5,3));
 
 // Array And Object In Typescript
+
+// Array
+
+// let arrNames: Array<string> = ["Doctor", "Stranger", "Marvel"];
+// arrNames.push("Spider Man");
+// console.log(arrNames);
+
+// let arrNumbers: Array<number> = [1, 2, 3, 4, 5, 0.7];
+// arrNumbers.push(10);
+// arrNumbers[7] = 20;
+// console.log(arrNumbers);
+
+// let mixed = [1, "string", false, [1, 2, 3]];
+// mixed.push("stranger");
+// console.log(mixed);
+
+// Object
+
+let person = {
+  name: "Stranger",
+  age: 21,
+  isStudent: true,
+};
+
+let person1 = { ...person, name: "Doctor", age: 19 };
+console.log("person", person);
+console.log("person1", person1);
+
+let person2 = {
+  ...person,
+  name: "Tony Stark",
+  age: 40,
+  isStudent: false,
+  sex: "male",
+};
+
+console.log(person2);

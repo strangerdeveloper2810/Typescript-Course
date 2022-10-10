@@ -1,32 +1,54 @@
 "use strict";
 // Typescript basic part 1
 // Type in Typescript
-let myName = "Stranger";
-let myAge = 21;
-let isStudent = true;
-console.log("myName: ", myName);
-console.log("myAge: ", myAge);
-console.log("isStudent: ", isStudent);
+// let myName: string = "Stranger";
+// let myAge: number = 21;
+// let isStudent: boolean = true;
+// console.log("myName: ", myName);
+// console.log("myAge: ", myAge);
+// console.log("isStudent: ", isStudent);
 // Function in Typescript
-const square = (side) => side * side;
-console.log("square: ", square(2));
-let greet;
-greet = () => {
-    console.log("Hello Typescript");
-};
-greet();
-const addNumber = (a, b, c) => a + b + c;
-console.log(addNumber(1, 2, 3));
-const addNumbers = (a, b, c) => {
-    console.log(a + b);
-    console.log(c);
-};
-addNumbers(3, 4, "stranger");
-const addDefault = (a, b, c = 10) => {
-    console.log("sum = ", a + b);
-    console.log("c = ", c);
-};
-addDefault(5, 5);
-const minus = (a, b) => a - b;
-console.log("minus ", minus(5, 3));
+// const square = (side: number) => side * side;
+// console.log("square: ", square(2));
+// let greet: Function;
+// greet = () => {
+//   console.log("Hello Typescript");
+// };
+// greet();
+// const addNumber = (a: number, b: number, c: number) => a + b + c;
+// console.log(addNumber(1, 2, 3));
+// const addNumbers = (a: number, b: number, c?: number | string) => {
+//   console.log(a + b);
+//   console.log(c);
+// };
+// addNumbers(3, 4, "stranger");
+// const addDefault = (a: number, b: number, c: number | string = 10) => {
+//   console.log("sum = ", a + b);
+//   console.log("c = ", c);
+// };
+// addDefault(5, 5);
+// const minus = (a: number, b: number): number => a -b ;
+// console.log("minus ", minus(5,3));
 // Array And Object In Typescript
+// Array
+// let arrNames: Array<string> = ["Doctor", "Stranger", "Marvel"];
+// arrNames.push("Spider Man");
+// console.log(arrNames);
+// let arrNumbers: Array<number> = [1, 2, 3, 4, 5, 0.7];
+// arrNumbers.push(10);
+// arrNumbers[7] = 20;
+// console.log(arrNumbers);
+// let mixed = [1, "string", false, [1, 2, 3]];
+// mixed.push("stranger");
+// console.log(mixed);
+// Object
+let person = {
+    name: "Stranger",
+    age: 21,
+    isStudent: true,
+};
+let person1 = Object.assign(Object.assign({}, person), { name: "Doctor", age: 19 });
+console.log("person", person);
+console.log("person1", person1);
+let person2 = Object.assign(Object.assign({}, person), { name: "Tony Stark", age: 40, isStudent: false, sex: "male" });
+console.log(person2);
