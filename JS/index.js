@@ -39,16 +39,28 @@
 // arrNumbers[7] = 20;
 // console.log(arrNumbers);
 // let mixed = [1, "string", false, [1, 2, 3]];
+// let mixed: Array <string | number | boolean> = ["stranger", 1, true];
 // mixed.push("stranger");
 // console.log(mixed);
 // Object
-let person = {
-    name: "Stranger",
-    age: 21,
-    isStudent: true,
-};
-let person1 = Object.assign(Object.assign({}, person), { name: "Doctor", age: 19 });
-console.log("person", person);
-console.log("person1", person1);
-let person2 = Object.assign(Object.assign({}, person), { name: "Tony Stark", age: 40, isStudent: false, sex: "male" });
-console.log(person2);
+// let person = {
+//   name: "Stranger",
+//   age: 21,
+//   isStudent: true,
+// };
+// let person1 = { ...person, name: "Doctor", age: 19 };
+// console.log("person", person);
+// console.log("person1", person1);
+// let person2 = {
+//   ...person,
+//   name: "Tony Stark",
+//   age: 40,
+//   isStudent: false,
+//   sex: "male",
+// };
+// console.log(person2);
+// Any Type in Typescript
+let myAge;
+myAge = 19;
+myAge = "Nine Teen";
+console.log(myAge);
