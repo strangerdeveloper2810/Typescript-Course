@@ -16,53 +16,110 @@ console.log("Learn OOP With Typescript");
     + Tính kế thừa(Inheritance): Cho phép class con sử dụng lại những thuộc tính và phương thức của class cha đã định nghĩa trước đó. Class con có thể override lại phương thức của class cha (nếu cần sử dụng lại phương thức thì dùng super.tenPhuongThuc() ). Tuy nhiên để override thì khai báo dưới dạng phương thức (). (Còn các trường hợp còn lại thì không cần override để kế thừa thì arrow function để đảm bảo ngữ cảnh con trỏ this).
 
     + Tính đa hình (Polymorphism)
-
-
-
 */
-class NhanVien {
+// class NhanVien {
+//   public maNhanVien: string | number = "";
+//   public tenNhanVien: string = "";
+//   //   private heSoLuong: number = 1;
+//   //   private luongCoBan: number = 1000;
+//   protected heSoLuong: number = 1;
+//   protected luongCoBan: number = 1000;
+//   constructor() {}
+//   tinhLuong() {
+//     return this.heSoLuong * this.luongCoBan;
+//   }
+//   hienThiThongTin() {
+//     console.log("Mã nhân viên: ", this.maNhanVien);
+//     console.log("tên nhân viên: ", this.tenNhanVien);
+//     console.log("Hệ số lương: ", this.heSoLuong);
+//     console.log("Lương cơ bản: ", this.luongCoBan);
+//   }
+//   getHeSoLuong() {
+//     return this.heSoLuong;
+//   }
+//   setLuongCoBan(luongCoBan: number) {
+//     this.luongCoBan = luongCoBan;
+//   }
+// }
+// class NhanVienKeToan extends NhanVien {
+//   duAn: string = "";
+//   nghiepVuKeToan() {
+//     console.log("Nghiệp vụ kế toán");
+//   }
+//   tinhLuong(): number { //override: ghi đè
+//     return super.tinhLuong() + 4000;
+//   }
+// }
+// let nv1 = new NhanVien();
+// nv1.maNhanVien = 1;
+// nv1.tenNhanVien = "DoctorStanger";
+// let heSoLuong = nv1.getHeSoLuong();
+// nv1.setLuongCoBan(20000);
+// nv1.hienThiThongTin();
+// let keToan1 = new NhanVienKeToan();
+// let luongKeToan = keToan1.tinhLuong();
+// console.log("Lương kế toán = ",luongKeToan);
+// Generic In Typescript
+// interface Mang<T> {
+//   length: number;
+//   [index: number]: T;
+// }
+// let arrNumber: Mang<number> = [1, 2, 3, 4, 5, 6];
+// console.log(arrNumber);
+class Product {
     constructor() {
-        this.maNhanVien = "";
-        this.tenNhanVien = "";
-        //   private heSoLuong: number = 1;
-        //   private luongCoBan: number = 1000;
-        this.heSoLuong = 1;
-        this.luongCoBan = 1000;
-    }
-    tinhLuong() {
-        return this.heSoLuong * this.luongCoBan;
-    }
-    hienThiThongTin() {
-        console.log("Mã nhân viên: ", this.maNhanVien);
-        console.log("tên nhân viên: ", this.tenNhanVien);
-        console.log("Hệ số lương: ", this.heSoLuong);
-        console.log("Lương cơ bản: ", this.luongCoBan);
-    }
-    getHeSoLuong() {
-        return this.heSoLuong;
-    }
-    setLuongCoBan(luongCoBan) {
-        this.luongCoBan = luongCoBan;
+        this.id = "";
+        this.name = "";
+        this.price = 0;
+        this.showInfo = () => {
+            console.log("showInfo", this);
+        };
     }
 }
-class NhanVienKeToan extends NhanVien {
+let product = new Product();
+product.id = 1;
+product.name = "Product 1";
+product.price = 1000;
+class ProductList {
     constructor() {
-        super(...arguments);
-        this.duAn = "";
+        this.data = [];
     }
-    nghiepVuKeToan() {
-        console.log("Nghiệp vụ kế toán");
+    insert(newProduct) {
+        this.data.push(newProduct);
     }
-    tinhLuong() {
-        return super.tinhLuong() + 4000;
+    delete(id) {
+        this.data = this.data.filter((product) => product.id !== id);
     }
 }
-let nv1 = new NhanVien();
-nv1.maNhanVien = 1;
-nv1.tenNhanVien = "DoctorStanger";
-let heSoLuong = nv1.getHeSoLuong();
-nv1.setLuongCoBan(20000);
-nv1.hienThiThongTin();
-let keToan1 = new NhanVienKeToan();
-let luongKeToan = keToan1.tinhLuong();
-console.log("Lương kế toán = ", luongKeToan);
+let product2 = Object.assign(Object.assign({}, product), { id: 2, name: "product 2" });
+let productList = new ProductList();
+productList.insert(product);
+productList.insert(product2);
+console.log(productList.data);
+class User {
+    constructor() {
+        this.id = "";
+        this.name = "";
+        this.userName = "";
+        this.password = "";
+    }
+}
+class List {
+    constructor() {
+        this.data = [];
+    }
+    insert(item) {
+        this.data.push(item);
+    }
+    delete(id) {
+        this.data = this.data.filter((product) => product.id !== id);
+    }
+}
+let user1 = new User();
+user1.id = 1;
+user1.name = "Trình";
+user1.userName = "stranger";
+user1.password = "1234567";
+let userList = new List();
+userList.insert(user1);
+console.log("userList", userList.data);
